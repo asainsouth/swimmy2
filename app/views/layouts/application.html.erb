@@ -6,11 +6,78 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <header class="shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+     <%= link_to "Swimmy_Contact_books", root_path, class: 'nav-link text-light' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+    <% if user_signed_in? %>
+
+    <li class="nav-item">
+      <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
+      <i class="fas fa-home"></i>マイページ
+      <%end%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to contact_books_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>記録一覧
+      <%end%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+      <i class="fas fa-sign-out-alt"></i>ログアウト
+    </li>
+      <%end%>
+    <% elsif teacher_signed_in? %>
+
+    <li class="nav-item">
+      <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+      <i class="fas fa-users"></i>利用者一覧
+    </li>
+    <%end%>
+
+    <li class="nav-item">
+      <%= link_to destroy_teacher_session_path, method: :delete, class: 'nav-link text-light' do %>
+      <i class="fas fa-sign-out-alt"></i>ログアウト
+    </li>
+      <%end%>
+    <% else %>
+
+    <li class="nav-item">
+        <%= link_to about_path, class: 'nav-link text-light' do  %>
+        <i class="fas fa-link"></i>About
+        <%end%>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-sign-in-alt"></i>ログイン
+        <% end %>
+    </li>
+
+    <li class="nav-item">
+        <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-user-plus"></i>新規登録
+        <%end%>
+    </li>
+
+    <% end %>
+  </ul>
+  </div>
+  </div>
+  </nav>
     <%= yield %>
   </body>
 </html>

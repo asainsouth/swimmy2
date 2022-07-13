@@ -1,0 +1,20 @@
+<h2>利用者一覧</h2>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>利用者ID</th>
+      <th>利用者名</th>
+      <th>連絡帳記録へ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @users.each do |user| %>
+       <tr>
+       	<td><%= user.id %></td>
+        <td><%= link_to user.full_name, admin_user_path(user.id) %></td>
+        <td> <%= link_to "記録一覧へ", admin_user_contact_books_path(user.id), class: "btn btn-sm btn-info" %></td>
+       <% end %>
+   </tbody>
+  </table>

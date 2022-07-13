@@ -1,0 +1,2 @@
+module Admin::ContactBooksHelper
+end

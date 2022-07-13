@@ -1,0 +1,21 @@
+<h2>会員情報編集</h2>
+<%= form_with model: @user do |f| %>
+  <label for="inputName">氏名</label>
+  <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <label for="inputName"></label>
+  <%= f.text_field :fast_name, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <label for="inputName">フリガナ</label>
+  <%= f.text_field :last_name_kana, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <label for="inputName"></label>
+  <%= f.text_field :fast_name_kana, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <label for="inputName">郵便番号</label>
+  <%= f.text_field :postal_code, autofocus: true, id:"inputPostCode", placeholder:"郵便番号"%>
+  <label for="inputName">住所</label>
+  <%= f.text_field :address, autofocus: true, id:"inputAddress", placeholder:"住所"%>
+  <label for="inputName">電話番号</label>
+  <%= f.text_field :phone_number, autofocus: true, id:"inputPhoneNumber", placeholder:"電話番号"%>
+  <label for="inputName">メールアドレス</label>
+  <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス"%>
+  <%= f.submit "編集内容を保存",class: "btn btn-success" %>
+  <%= link_to "前に戻る", user_path(current_user), class: "btn btn-sm btn-info" %>
+<% end %>

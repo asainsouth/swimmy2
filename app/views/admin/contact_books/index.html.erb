@@ -1,0 +1,24 @@
+<h2>記録一覧
+<%= link_to new_admin_user_contact_book_path do %>
+     <i class="fas fa-plus-circle" style="color: black;"></i>
+<% end %>
+</h2>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>利用日</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @contact_books.each do |contact_book| %>
+          <tr>
+            <td><%= contact_book.use_day %></td>
+            <td><%= link_to "記録詳細へ", admin_user_contact_book_path(contact_book.user_id,contact_book.id), class: "btn btn-sm btn-info" %></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
+
+ <%= link_to "利用者一覧に戻る", admin_users_path, class: "btn btn-sm btn-secondary" %>
