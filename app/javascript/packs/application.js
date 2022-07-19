@@ -17,3 +17,14 @@ import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(function() {
+  // ウインドウ読み込み時とリサイズ時に発動
+  $(window).on('load resize', function() {
+    // フッターの高さを変数に格納
+    var footerH = $('footer').height();
+
+    $('body').css('padding-bottom', footerH + 'px')
+
+  });
+});

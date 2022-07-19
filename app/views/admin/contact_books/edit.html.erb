@@ -1,0 +1,64 @@
+<%= form_with model: [@user, @contact_book],url: admin_user_contact_book_path(@user,@contact_book), method: :patch, local: :true do |f| %>
+
+　<div class="form-group">
+  <strong><%= f.label :"利用者名", class: "col-sm-3 control-label" %></strong>
+  <%= f.collection_select(:user_id, User.all, :id, :full_name, prompt: "-- 選択してください --", class: "col-sm-5 control-label genre_id") %>
+  </div>
+
+　<div class="form-group">
+    <strong><%= f.label :"利用日", class: "col-sm-3 control-label" %></strong>
+    <%= raw sprintf(
+      f.date_select(
+      :use_day,
+      use_month_numbers: true,
+      start_year: 2022,
+      end_year: (Time.now.year + 18),
+      default: Date.new(2022, 1, 1),
+      date_separator: '%s'),
+      '年 ', '月 ') + '日' %>
+　</div>
+
+　<div class="form-group">
+  <strong><%= f.label :start_use_time, "開始時間",class: "col-sm-3 control-label" %></strong>
+  <%= f.time_select :start_use_time %>
+  </div>
+
+  <div class="form-group">
+  <strong><%= f.label :finish_use_time, "終了時間",class: "col-sm-3 control-label" %></strong>
+  <%= f.time_select :finish_use_time %>
+  </div>
+
+ <div class="form-group">
+　<strong><%= f.label :is_active, '形態', class: "col-sm-3 control-label" %></strong>
+    <%= f.select :is_active, {'授業終了後': '授業終了後', '休校': '休校', '欠席': '欠席' }, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+ </div>
+
+ <div class="form-group">
+  <strong><%= f.label :"画像", class: "col-sm-3 control-label" %></strong>
+  <%= f.file_field :contact_book_image, class: "image" %>
+  </div>
+
+  <div class="form-group">
+  <strong><%= f.label :"食事", class: "col-sm-3 control-label" %></strong>
+  <%= f.text_field :eat,placeholder: "食事内容を記載", class: "col-sm-5 form-control-static name" %>
+  </div>
+
+  <div class="form-group">
+  <strong><%= f.label :"個人活動内容", class: "col-sm-3 control-label" %></strong>
+  <%= f.text_field :private_active,:rows => "8",placeholder: "個人活動内容を記載", class: "col-sm-5 control-label" %>
+  </div>
+
+  <div class="form-group">
+  <strong><%= f.label :"集団活動内容", class: "col-sm-3 control-label" %></strong>
+  <%= f.text_field :group_active,:rows => "8",placeholder: "集団活動内容を記", class: "col-sm-5 control-label introduction" %>
+  </div>
+
+  <div class="form-group">
+  <strong><%= f.label :"保護者への連絡", class: "col-sm-3 control-label" %></strong>
+  <%= f.text_area :connection,:rows => "8",placeholder: "保護者への連絡事項を記載", class: "col-sm-5 control-label introduction" %>
+  </div>
+
+  <div class="text-center">
+      <%= f.submit "変更を保存する", class: "btn btn-sm btn-success" %>
+  </div>
+      <% end %>

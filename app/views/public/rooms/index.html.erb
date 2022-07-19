@@ -1,0 +1,12 @@
+<div class="container col-sm-3">
+  <h2 class="text-center font-weight-bold">Registration information</h2>
+  <div class="justify-content-center">
+    <div class"col-xs-offset-11 col-xs-5">
+      <% @entries.each do |entry| %>
+        <div class="card mb-6">
+          <%= link_to "#{entry.teacher.teacher_name} 先生とのDM", room_path(entry.room_id), class: 'btn btn-info' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

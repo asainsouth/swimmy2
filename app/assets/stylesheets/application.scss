@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.body {
+	padding-bottom: 122px;
+}
+
+.contact-book-card-image {
+	width:100%;
+	height:250px;
+	object-fit:cover;
+}
+.card-div{
+	width:23%;
+	margin-right:20px;
+}
+/*.card-divdiv{*/
+/*	width:20%;*/
+/*	margin-left:25px;*/
+/*	margin-right:25px;*/
+/*	margin-bottom:25px;*/
+/*}*/
+
+
+.yield{
+	margin-bottom:200px;
+}
+
+.talk {
+	background-color:rgb(113,147,193); /* LINEっぽい背景色 */
+	padding:1em;
+	overflow:auto;
+}
+/* 左のトークボックス */
+.talk .talk_left:before { /* 左の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-position-x: -15px;
+  background-image: image-url('no_image.jpg')
+}
+.talk .talk_left p:before {  /* 左ふきだしの左三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	left:-20px;
+	border: 12px solid transparent;
+	border-right:12px solid white;
+}
+.talk .talk_left p { /* 左ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:0 0 0 10px;
+}
+/* 右のトークボックス */
+.talk .talk_right:after { /* 右の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-position-x: -15px;
+	background-image: image-url('no_image.jpg')
+	// 	background-image: image-url('no_image.jpg')
+}
+.talk .talk_right {
+	float:right; /* 右のふきだしは全体的に右寄せ */
+	margin-top:3em;
+}
+.talk .talk_right p:after { /* 右ふきだしの右三角を描画 */
+	content: '';
+	position:absolute;
+	top:8px;
+	right:-20px;
+	border: 12px solid transparent;
+	border-left:12px solid #85e249;
+}
+.talk .talk_right p { /* 右ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:0 10px 0 0;
+}
+.clearfix:after{
+  display:block;
+  clear: both;
+}
+.clearfix:befor{
+  display:block;
+  clear: both;
+}
+.clearfix{
+  display:block;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+.pagination {
+  justify-content: center;
+}
+

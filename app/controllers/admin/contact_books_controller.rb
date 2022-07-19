@@ -19,14 +19,29 @@ class Admin::ContactBooksController < ApplicationController
  end
 
  def show
-   @contact_book = ContactBook.find(params[:id])
-   @user= @contact_book.user
+   @user = User.find(params[:user_id])
+   @contact_book = @user.contact_books.find(params[:id])
  end
 
-end
+ def edit
+   @user = User.find(params[:user_id])
+   @contact_book = @user.contact_books.find(params[:id])
+   #@user= @contact_book.user
+ end
+
+ def update
+   @user = User.find(params[:user_id])
+   @contact_book = @user.contact_books.find(params[:id])
+   if @contact_book.update(contact_book_params)
+      redirect_to admin_user_contact_book_path(@user,@contact_book)
+   else
+      render :edit
+   end
+ end
 
  private
 
   def contact_book_params
-    params.require(:contact_book).permit( :use_day, :is_active, :eat, :private_active, :group_active, :connection, :start_use_time, :finish_use_time, :user_id)
+    params.require(:contact_book).permit( :use_day, :is_active, :eat, :private_active, :group_active, :connection, :start_use_time, :finish_use_time, :user_id, :contact_book_image)
   end
+end

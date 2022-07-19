@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>詳細記録</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <tr><th>利用日</th></tr><tr><td><%= @contact_book.use_day %></td></tr>
+        <tr><th>利用開始時間</th></tr><tr><td><%= @contact_book.start_use_time %></td></tr>
+        <tr><th>利用終了時間</th></tr><tr><td><%= @contact_book.finish_use_time %></td></tr>
+        <tr><th>形態</th></tr><tr><td><%= @contact_book.is_active %></td></tr>
+        <tr><th>画像</th></tr><tr><td><%= image_tag @contact_book.get_contact_book_image(500,500), class: 'img-fluid d-block mx-auto' %></td></tr>
+        <tr><th>食事</th></tr><tr><td><%= @contact_book.eat %></td></tr>
+        <tr><th>個人活動</th></tr><tr><td><%= @contact_book.private_active %></td></tr>
+        <tr><th>集団活動</th></tr> <tr><td><%= @contact_book.group_active %></td></tr>
+        <tr><th>保護者への連絡</th></tr><tr><td><%= @contact_book.connection %></td></tr>
+      </tr>
+    </thead>
+  </table>
+  <%= link_to "記録一覧に戻る", user_contact_books_path(current_user.id), class: "btn btn-sm btn-secondary" %>
+</div>

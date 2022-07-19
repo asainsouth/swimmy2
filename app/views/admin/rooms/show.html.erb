@@ -1,0 +1,54 @@
+<div>Adminチャットルームの詳細</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+<h2 style="text-align:center">Chat room</h2>
+
+<% if @chats.blank? %>
+  <p>メッセージはありません</p>
+<% else %>
+  <p>メッセージがあります</p>
+  <div class ="talk clearfix">
+  <% @chats.each do |chat| %>
+
+    <%# 先生版 %>
+    <% unless chat.teacher.nil? %>
+      <div class ="talk_left clearfix">
+        <p>
+        <% if chat.teacher.teacher_name %>
+          <%= "#{chat.teacher.teacher_name} 先生" %>:
+        <% else %>
+          先生:
+        <% end %>
+        <%=chat.message %>
+        </p>
+      </div>
+    <% end %>
+
+    <%# 保護者版 %>
+    <% unless chat.user.nil? %>
+      <div class ="talk_right clearfix">
+        <p>
+        <% if chat.user.full_name %>
+          <%= "#{chat.user.full_name} さん" %>:
+        <% else %>
+          未設定:
+        <% end %>
+        <%= chat.message %>
+        </p>
+      </div>
+    <% end %>
+
+  <% end %>
+  </div>
+<% end %>
+
+<%= form_with model: @chat, url: admin_chats_path(room_id: params[:id]), method: :post do |f| %>
+    <%= f.text_area :message %>
+    <%= f.submit %>
+<% end %>
+  </div>
+  </div>
+</div>

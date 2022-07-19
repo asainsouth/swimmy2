@@ -1,22 +1,38 @@
-<h2>マイページ</h2>
-  <h4>登録情報</h4>
-  <div>
-    氏名<%= @user.last_name %><%= @user.fast_name %>
+<div class="container col-sm-6">
+  <h2 class="text-center font-weight-bold">Registration information</h2>
+  <div class="row-justify-content-center">
+    <div class"col-xs-offset-11 col-xs-5">
+      <table class="table table-bordered">
+         <tbody>
+           <tr>
+            <th><i class="fas fa-fish"></i> Name</th>
+            <td class="text-center"> <%= @user.full_name %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-fish"></i> Kana</h>
+            <td class="text-center"><%= @user.full_name_kana %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-fish"></i> Post code</th>
+            <td class="text-center"><%= @user.address %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-fish"></i> Adress</th>
+            <td class="text-center"><%= @user.postal_code %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-fish"></i> Phone number</th>
+            <td class="text-center"><%= @user.phone_number %></td>
+          </tr>
+          <tr>
+            <th><i class="fas fa-fish"></i> Email address</th>
+            <td class="text-center"><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn-wrapper col-4 mx-auto">
+        <%= link_to "To edit", edit_user_path(@user), class: "btn btn-success btn-block" %>
+      </div>
+    </div>
   </div>
-  <div>
-    カナ<%= @user.last_name_kana %><%= @user.fast_name_kana %>
-  </div>
-  <div>
-    郵便番号<%= @user.postal_code %>
-  </div>
-  <div>
-    住所<%= @user.address %>
-  </div>
-  <div>
-    電話番号<%= @user.phone_number %>
-  </div>
-  <div>
-    メールアドレス<%= @user.email %>
-  </div>
-
-  <%= link_to '編集する', edit_user_path(@user), class: "btn btn-sm btn-success" %>
+</div>
