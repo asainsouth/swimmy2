@@ -1,6 +1,5 @@
 class ContactBook < ApplicationRecord
   belongs_to :user
-  has_many :notifications, dependent: :destroy
 
   has_one_attached :contact_book_image
 

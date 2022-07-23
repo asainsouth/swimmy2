@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_up_path_for(resource)
+    case resources
+    when Admin
+      admin_users_path
+    when Customer
+      user_contact_books_path(current_user.id)
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

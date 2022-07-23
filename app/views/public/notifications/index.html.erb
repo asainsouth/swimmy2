@@ -1,28 +1,11 @@
 <div class="text-center">
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 
-  <% if notifications.exists? %>
-
-  <% visitor = notification.visitor %>
-  <% visited = notification.visited %>
-
-    <div class='m-2'>
-    <%= link_to user_path(visitor) do %>
-      <span class="visitor_user_image_box"><%= attachment_image_tag visitor, :image, class:"visitor_user_image", fallback: "logo.png" %></span>
-        <%= visitor.nickname %>
-      <% end %>
-        <span>さんが</span>
-    
-        <% case notification.action %>
-          <% when 'chat' then %>
-            <%= link_to 'あなたにメッセージ', chat_path(notification.visitor), style:"font-weight: bold;", class: "border-bottom" %>
-              <%= "を送りました" %>
-            <% end %>
-              <span><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span><br>
-    </div>
-
- <%= paginate notifications %>
+  <h1 class="text-center font-weight-bold"> Notice list</h1>
+<% if @notifications.exists? %>
+    <%= render @notifications %>
+    <%= paginate @notifications %>
   <% else %>
    <p>通知はありません</p>
   <% end %>
 </div>
+

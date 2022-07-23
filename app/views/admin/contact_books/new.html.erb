@@ -1,4 +1,7 @@
-  <h2>連絡帳新規登録</h2>
+  <div class="container">
+  <h2 class="text-center font-weight-bold"> New record</h2>
+ <div class="row d-flex justify-content-center table-back">
+ 	<div class="col-sm-9">
 
    <% if @contact_book.errors.any? %>
    <%= @contact_book.errors.count %>件のエラーが発生しました
@@ -41,7 +44,7 @@
 
  <div class="form-group">
 　<strong><%= f.label :is_active, '形態', class: "col-sm-3 control-label" %></strong>
-    <%= f.select :is_active, {'授業終了後': '授業終了後', '休校': '休校', '欠席': '欠席' }, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+    <%= f.select :is_active, {'授業終了後': '授業終了後', '休校': '休校', '欠席': '欠席' }, { include_blank: '選択してください'}, { class: "col-sm-3 control-label" , required: true } %>
  </div>
 
  <div class="form-group">

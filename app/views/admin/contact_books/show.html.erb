@@ -1,20 +1,26 @@
-<h2>記録詳細</h2>
+<div class="container">
+  <h2 class="text-center font-weight-bold">Detailed record</h2>
+ <div class="row d-flex justify-content-center">
+ 	<div class="col-sm-8">
 
-<table class = "table">
+<table class = "table table-back">
   <thead>
     <tr>
-      <tr><th>利用日</th></tr><tr><td><%= @contact_book.use_day %></td></tr>
-      <tr><th>利用開始時間</th></tr><tr><td><%= @contact_book.start_use_time %></td></tr>
-      <tr><th>利用終了時間</th></tr><tr><td><%= @contact_book.finish_use_time %></td></tr>
-      <tr><th>形態</th></tr><tr><td><%= @contact_book.is_active %></td></tr>
-      <tr><th>画像</th></tr><tr><td><%= image_tag @contact_book.get_contact_book_image(100,100) %></td></tr>
-      <tr><th>食事</th></tr><tr><td><%= @contact_book.eat %></td></tr>
-      <tr><th>個人活動</th></tr><tr><td><%= @contact_book.private_active %></td></tr>
-      <tr><th>集団活動</th></tr> <tr><td><%= @contact_book.group_active %></td></tr>
-      <tr><th>保護者への連絡</th></tr><tr><td><%= @contact_book.connection %></td></tr>
+      <tr><th class=table-title>利用日</th></tr><tr><td><%= @contact_book.use_day %></td></tr>
+      <tr><th class=table-title>利用開始時間</th></tr><tr><td><%= @contact_book.start_use_time %></td></tr>
+      <tr><th class=table-title>利用終了時間</th></tr><tr><td><%= @contact_book.finish_use_time %></td></tr>
+      <tr><th class=table-title>形態</th></tr><tr><td><%= @contact_book.is_active %></td></tr>
+      <tr><th class=table-title>画像</th></tr><tr><td><%= image_tag @contact_book.get_contact_book_image(100,100) %></td></tr>
+      <tr><th class=table-title>食事</th></tr><tr><td><%= @contact_book.eat %></td></tr>
+      <tr><th class=table-title>個人活動</th></tr><tr><td><%= @contact_book.private_active %></td></tr>
+      <tr><th class=table-title>集団活動</th></tr> <tr><td><%= @contact_book.group_active %></td></tr>
+      <tr><th class=table-title>保護者への連絡</th></tr><tr><td><%= @contact_book.connection %></td></tr>
     </tr>
   </thead>
 </table>
 
 <%= link_to '編集する', edit_admin_user_contact_book_path(@user,@contact_book), class: "btn btn-sm btn-success" %>
 <%= link_to "記録一覧に戻る", admin_user_contact_books_path, class: "btn btn-sm btn-secondary" %>
+</div>
+</div>
+</div>

@@ -1,24 +1,32 @@
-<h2>記録一覧
+<div class='container'>
+<h2 class="text-left font-weight-bold">Record list
 <%= link_to new_admin_user_contact_book_path do %>
-     <i class="fas fa-plus-circle" style="color: black;"></i>
+     <i class="fas fa-plus-circle p-circle"></i>
 <% end %>
 </h2>
+<div class='row col-sm-8'>
 
-<table class = "table">
+<table class = "table table-back">
   <thead>
     <tr>
-      <th>利用日</th>
+      <th class="text-center table-title">The date of use</th>
+      <th class="text-center table-title">Detailed record</th>
     </tr>
   </thead>
 
   <tbody>
       <% @contact_books.each do |contact_book| %>
           <tr>
-            <td><%= contact_book.use_day %></td>
-            <td><%= link_to "記録詳細へ", admin_user_contact_book_path(contact_book.user_id,contact_book.id), class: "btn btn-sm btn-info" %></td>
+            <td class="text-center"><%= contact_book.use_day %></td>
+            <td class="text-center"><%= link_to "Detailed record", admin_user_contact_book_path(contact_book.user_id,contact_book.id), class: "btn btn-sm btn-info" %></td>
           </tr>
       <% end %>
   </tbody>
 </table>
 
- <%= link_to "利用者一覧に戻る", admin_users_path, class: "btn btn-sm btn-secondary" %>
+<div class="btn-wrapper col-3 mx-auto">
+ <%= link_to "Back to user list", admin_users_path, class: "btn btn-sm btn-secondary" %>
+ </div>
+ <%= paginate @contact_books %>
+ </div>
+  </div>

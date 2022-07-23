@@ -1,41 +1,41 @@
 <div class="container">
   <div class="row-justify-content-center">
       <h2 class="head-line text-center">
-        <%= @user.full_name %>さんの会員情報編集
+        <h2 class="text-left font-weight-bold"><%= @user.full_name %>.Edit member information</h2>
       </h2>
     <%= form_with model: @user, url:admin_user_path do |f| %>
       <div class="col-xs-10">
 
         <div class="form-group col-xs-9">
-          <%= f.label :"氏名", class: "col-sm-4 control-label font-weight-bold" %>
+          <%= f.label :"Name", class: "col-sm-2 control-label font-weight-bold" %>
           <%= f.text_field :last_name, class: "col-sm-3 form-control-static name" %>
           <%= f.text_field :fast_name, class: "col-sm-3 form-control-static name" %>
         </div>
 
         <div class="form-group col-xs-9">
-          <%= f.label :"フリガナ", class: "col-sm-4 control-label font-weight-bold" %>
+          <%= f.label :"Kana", class: "col-sm-2 control-label font-weight-bold" %>
           <%= f.text_field :last_name_kana, class: "col-sm-3 form-control-static name" %>
           <%= f.text_field :fast_name_kana, class: "col-sm-3 form-control-static name" %>
         </div>
 
         <div class="form-group col-xs-9">
-          <%= f.label :"郵便番号", class: "col-sm-4 control-label font-weight-bold" %>
+          <%= f.label :"Post code", class: "col-sm-2 control-label font-weight-bold" %>
           <%= f.text_field :postal_code %>
         </div>
 
         <div class="form-group col-xs-9">
-          <%= f.label :"住所", class: "col-sm-4 control-label font-weight-bold" %>
+          <%= f.label :"Adress", class: "col-sm-2 control-label font-weight-bold" %>
           <%= f.text_field :address %>
         </div>
 
       <div class="form-group col-xs-9">
-          <%= f.label :"電話番号", class: "col-sm-4 control-label font-weight-bold" %>
+          <%= f.label :"Phone number", class: "col-sm-2 control-label font-weight-bold" %>
           <%= f.text_field :phone_number %>
         </div>
       </div>
       <div class="text-center">
-        <%= f.submit "変更を保存する", class: "btn btn-sm btn-success" %>
-        <%= link_to "前に戻る", admin_user_path, class: "btn btn-sm btn-info" %>
+        <%= f.submit "Save your edits", class: "btn btn-sm btn-success" %>
+        <%= link_to "Back to user list", admin_user_path, class: "btn btn-sm btn-info" %>
       </div>
     <% end %>
     </div>

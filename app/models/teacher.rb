@@ -6,4 +6,6 @@ class Teacher < ApplicationRecord
 
          has_many :entries, dependent: :destroy
          has_many :chats, dependent: :destroy
+         
+         has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
 end

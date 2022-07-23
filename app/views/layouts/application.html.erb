@@ -14,17 +14,29 @@
 
   <body>
     <header class="shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00ced1;">
+    <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container">
       <%= link_to root_path, class: 'nav-link text-dark' do %>
        <i class="fas fa-fish"></i><i class="fas fa-fish"></i>Swimmy Contact Book<i class="fas fa-fish"></i> <i class="fas fa-fish"></i>
       <%end%>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
     <% if user_signed_in? %>
+
+    <li class="nav-item">
+    <%= link_to notifications_path, class: 'nav-link text-dark' do %>
+     <i class="fas fa-concierge-bell"></i>Notification <% if user_unchecked_notifications.any? %>
+    <span>
+    <i class="fas fa-exclamation n-circle"></i>
+    </span>
+    <% end %>
+      <%end%>
+    </li>
 
     <li class="nav-item">
       <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
@@ -48,19 +60,22 @@
       <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark' do %>
       <i class="fas fa-sign-out-alt"></i>Log out
       <%end%>
+    </li>
+
     <% elsif teacher_signed_in? %>
 
     <li class="nav-item">
       <%= link_to admin_users_path, class: 'nav-link text-dark' do %>
       <i class="fas fa-users"></i>User list
-    </li>
     <%end%>
+    </li>
 
     <li class="nav-item">
       <%= link_to destroy_teacher_session_path, method: :delete, class: 'nav-link text-dark' do %>
       <i class="fas fa-sign-out-alt"></i>Log out
-    </li>
       <%end%>
+    </li>
+
     <% else %>
 
     <li class="nav-item">
@@ -75,7 +90,7 @@
         <% end %>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item table-titile">
         <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
         <i class="fas fa-user-plus"></i>Sign up
         <%end%>
@@ -89,7 +104,7 @@
   </header>
     <%= yield %>
     <footer class="fixed-bottom">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light table-header" >
         <div class="container">
           <div>
             <p class="text-light"><i class="fas fa-fish"></i>Swimmy Contact Book.inc <i class="fas fa-fish"></i></p>

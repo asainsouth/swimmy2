@@ -3,6 +3,7 @@ class Public::ChatsController < ApplicationController
   def create
     chat = Chat.new(chat_params)
     if chat.save!
+      # chat.create_notification_chat!(Teacher.find(chat.teacher_id), chat.id, chat.room_id, chat.user_id, 'user')
       redirect_to room_path(chat.room_id)
     else
       redirect_to room_path(chat.room_id), alert: 'メッセージを送信できませんでした'

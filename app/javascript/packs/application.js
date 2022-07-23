@@ -18,13 +18,16 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(function() {
-  // ウインドウ読み込み時とリサイズ時に発動
-  $(window).on('load resize', function() {
-    // フッターの高さを変数に格納
-    var footerH = $('footer').height();
+//初回読み込み、リロード、ページ切り替えで動く。
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    // ウインドウ読み込み時とリサイズ時に発動
+    $(window).on('load resize', function() {
+      // フッターの高さを変数に格納
+      var footerH = $('footer').height();
 
-    $('body').css('padding-bottom', footerH + 'px')
+      $('body').css('padding-bottom', footerH + 'px')
 
+    });
   });
 });

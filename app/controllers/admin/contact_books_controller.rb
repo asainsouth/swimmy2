@@ -15,7 +15,7 @@ class Admin::ContactBooksController < ApplicationController
 
  def index
    @user = User.find(params[:user_id])
-   @contact_books = @user.contact_books.page(params[:page])
+   @contact_books = @user.contact_books.page(params[:page]).per(10)
  end
 
  def show

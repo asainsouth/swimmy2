@@ -1,12 +1,14 @@
-<h2>利用者一覧</h2>
+<div class='container'>
+  <h1 class="text-left font-weight-bold">User list</h2>
+<div class='row col-sm-10'>
 
-<table class = "table">
+<table class = "table table-back">
   <thead>
     <tr>
-      <th>利用者ID</th>
-      <th>利用者名</th>
-      <th>連絡帳記録へ</th>
-      <th>チャット</th>
+      <th class = "table-title">User.ID</th>
+      <th class = "table-title">User.name</th>
+      <th class = "table-title">Record list</th>
+      <th class = "table-title">Access to chat room</th>
     </tr>
   </thead>
 
@@ -15,8 +17,10 @@
        <tr>
        	<td><%= user.id %></td>
         <td><%= link_to user.full_name, admin_user_path(user.id) %></td>
-        <td> <%= link_to "記録一覧へ", admin_user_contact_books_path(user.id), class: "btn btn-sm btn-info" %></td>
-        <td><%= link_to 'ユーザーとのチャットへ', admin_rooms_path(user_id: user.id), method: :post, class: "btn btn-sm btn-success" %></td>
+        <td> <%= link_to "Record list", admin_user_contact_books_path(user.id), class: "btn btn-sm btn-info" %></td>
+        <td><%= link_to 'Chat room', admin_rooms_path(user_id: user.id), method: :post, class: "btn btn-sm btn-success" %></td>
        <% end %>
    </tbody>
   </table>
+  </div>
+  </div>

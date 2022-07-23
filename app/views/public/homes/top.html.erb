@@ -1,1 +1,16 @@
-<h1>連絡帳アプリへようこそ</h1>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-12 col-lg-12 col-xl-6">
+      <strong><h1><i class="fas fa-fish"></i>welcome to SwimmyContact Book</strong>!!</h1>
+      <div class="btn-wrapper col-8 mx-auto">
+        <div class="row">
+           <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-info btn-sm btn-block mb-3" %>
+        </div>
+        <div class="row">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-success btn-sm btn-block mb-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

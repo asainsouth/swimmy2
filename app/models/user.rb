@@ -8,7 +8,6 @@ class User < ApplicationRecord
          has_many :entries, dependent: :destroy
          has_many :chats, dependent: :destroy
 
-         has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
          has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   def full_name

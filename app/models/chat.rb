@@ -4,27 +4,26 @@ class Chat < ApplicationRecord
   belongs_to :room
   has_many :notifications, dependent: :destroy
 
-  def create_notification_chat!(current_user, chat_id, room_id, visited_id)
-    # チャットしている相手を取得し、通知を送る
-    temp_ids = Chat.select(:user_id).where(room_id: room_id).where.not(user_id: current_user.id).distinct
-    temp_ids.each do |temp_id|
-      save_notification_chat!(current_user, chat_id, temp_id['user_id'])
-    end
+  def create_notification_chat!(teacher, user, room_id)
      # もしチャットが空だったら、投稿者に通知を送る
-    save_notification_chat!(current_user, chat_id, visited_id) if temp_ids.blank?
+    save_notification_chat!(teacher, user, room_id)
   end
 
-  def save_notification_chat!(current_user, chat_id, visited_id)
+  def save_notification_chat!(teacher, user, room_id)
     # チャットは複数回することが考えられるため、複数回通知する
-    notification = current_user.active_notifications.new(
-      chat_id: chat_id,
-      visited_id: visited_id,
-      action: 'chat'
+    teacher.active_notifications.find_or_create_by(
+      room_id: room_id,
+      visited_id: user.id,
+      action: 'chat',
+      checked: false
     )
-    # 自分のチャットの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
-    notification.save if notification.valid?
+    # FIXME: 自分のチャットの場合は、通知済みとするが、モデルが異なるため対策が必要
+    #         ポリモーフィックを使用すれば解決できね可能性あり。
+    #         -- ただし、今回は一方通行のため不要と判断しコメントアウト --
+    # if notification.visitor_id == notification.visited_id
+    #   notification.checked = true
+    # end
+    # notification.checked = false
+    # notification.save if notification.valid?
   end
 end
