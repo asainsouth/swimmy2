@@ -5,10 +5,15 @@
       <strong><h1><i class="fas fa-fish"></i>welcome to SwimmyContact Book</strong>!!</h1>
       <div class="btn-wrapper col-8 mx-auto">
         <div class="row">
-           <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-info btn-sm btn-block mb-3" %>
+          <%= link_to 'Guest login（for viewing）', users_guest_sign_in_path, class: "btn btn-secondary rounded-pill btn-sm btn-block mb-3", method: :post %>
         </div>
+        <p></p>
         <div class="row">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-success btn-sm btn-block mb-3" %>
+           <%= link_to "Log in", new_user_session_path, class: "btn btn-info rounded-pill btn-sm btn-block mb-3" %>
+        </div>
+        <p></p>
+        <div class="row">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success rounded-pill btn-sm btn-block mb-3" %>
         </div>
       </div>
     </div>

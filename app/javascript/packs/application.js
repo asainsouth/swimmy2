@@ -18,6 +18,34 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+require("@rails/ujs").start()
+// require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+require('jquery')
+require('../fadeIn')
+require('./preview')
+
+
+//= require rails-ujs
+//= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
+
+window.onload = function() {
+// ↪︎ windowがロードされた時にアクションを実行するように設定
+  if (document.getElementById("area")) {
+    // ↪︎ areaのIDがある場合に処理を実行させる（これがないとチャット画面がなくても常にJavaScriptが動いてしまいます）
+    var scrollPosition = document.getElementById("area").scrollTop;
+    // ↪︎ area要素のスクロールされた時の最も高い場所を取得
+    var scrollHeight = document.getElementById("area").scrollHeight;
+    // ↪︎ area要素自体の最も高い場所を取得
+    document.getElementById("area").scrollTop = scrollHeight;
+    // ↪︎ area要素のスクロールされた時の最も高い場所をarea要素自体の最も高い場所として指定してあげる
+  }
+}
+
 //初回読み込み、リロード、ページ切り替えで動く。
 $(document).on('turbolinks:load', function() {
   $(function() {

@@ -1,13 +1,19 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
 
-  def after_sign_up_path_for(resource)
-    case resources
-    when Admin
+  def after_sign_in_path_for(resource)
+    case resource
+    when Teacher
       admin_users_path
-    when Customer
-      user_contact_books_path(current_user.id)
+    when User
+    user_contact_books_path(current_user.id)
     end
+  end
+
+  def set_search
+    @search = ContactBook.ransack(params[:q])
+    @contact_books = @search.result
   end
 
   protected

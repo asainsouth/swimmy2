@@ -61,6 +61,12 @@ gem 'kaminari'
 
 gem 'pry-rails'
 
+gem 'ransack'
+
+gem 'enum_help'
+
+gem 'jquery-rails'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

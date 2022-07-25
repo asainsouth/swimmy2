@@ -1,7 +1,7 @@
 <% visitor_id = notification.visitor_id %>
 <% visited_id = notification.visited_id %>
 
-<div class='m-2'>
+<div class='m-2 table-back'>
   <%= notification.visitor.teacher_name %>
   先生が
   <%= link_to 'あなたにメッセージ', room_path(notification.room_id), class: "border-bottom" %>

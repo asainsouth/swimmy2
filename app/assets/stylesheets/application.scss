@@ -15,10 +15,11 @@
  */
 
 body {
-  background-image: image-url("back.jpg");
+  background-image: image-url("watercolor.jpg");
   background-position: center;
-  background-size: cover;
   width: 100%;
+  height: 100%;
+  background-size: cover;
 	padding-bottom: 122px;
 }
 
@@ -40,7 +41,9 @@ body {
 .talk {
 	background-color:rgba(255,255,255,0.6);
 	padding:1em;
-	overflow:auto;
+	width:100%;
+  height:10%;
+	overflow:scroll;
 }
 /* 左のトークボックス */
 .talk .talk_left:before { /* 左の丸アイコン */
@@ -281,6 +284,31 @@ font-size:revert;
 .p-circle {
   color:#281a14;
 }
+
+.area-a {
+  width: 50%; /* 幅 */
+  margin: 1em 0; /* 周囲の余白 */
+  padding: 0.5em; /* 枠線内の余白 */
+  font-size: 1em; /* フォントサイズ */
+  border: solid 2px #008b8b; /* 枠線のスタイル */
+  border-radius: 4px; /* 角丸に */
+  resize: none; /* リサイズ不可に */
+}
+/* フォーカス時のスタイル */
+textarea:focus {
+  border-color: #56a9ff;
+  outline: 0;
+}
+
+.logo_area {
+  width: 10px;
+}
+
+.logo {
+  height: 10%;
+  width: 10%;
+}
+
 
 
 

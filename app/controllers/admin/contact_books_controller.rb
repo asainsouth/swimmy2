@@ -16,6 +16,7 @@ class Admin::ContactBooksController < ApplicationController
  def index
    @user = User.find(params[:user_id])
    @contact_books = @user.contact_books.page(params[:page]).per(10)
+   @contact_books = @contact_books.where('use_day LIKE ?', "%#{params[:search]}%") if params[:search].present?
  end
 
  def show

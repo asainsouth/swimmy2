@@ -2,8 +2,8 @@ class Public::ContactBooksController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @contact_books = @user.contact_books.all.page(params[:page]).per(12)
-    @contact_books = @contact_books.where('use_day LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @contact_books = @user.contact_books.ransack(params[:q]).result.page(params[:page]).per(12)
+
   end
 
   def show

@@ -1,7 +1,15 @@
 <div class='container'>
-  <h1 class="text-left font-weight-bold">User list</h2>
-<div class='row col-sm-10'>
-
+<h1 class="text-left font-weight-bold">User list</h1>
+ <div class='row col-sm-8'>
+<div class="search">
+<%= form_with url: admin_users_path, method: :get, local: true do |f|  %>
+<%= f.collection_select(:user_id, User.all, :id, :full_name, prompt: "選択してください") %>
+<%= f.submit 'Search', name: nil %>
+<%end%>
+ </div>
+ </div>
+ <p></p>
+ <div class='row col-sm-8'>
 <table class = "table table-back">
   <thead>
     <tr>

@@ -1,6 +1,8 @@
 class ContactBook < ApplicationRecord
   belongs_to :user
 
+  enum role: { general: "一般", admin: "管理者" }
+
   has_one_attached :contact_book_image
 
   def get_contact_book_image(width, height)

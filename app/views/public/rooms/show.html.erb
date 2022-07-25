@@ -2,13 +2,14 @@
   <div class="row">
     <div class="col-md-12">
 
-<h2 class="text-center font-weight-bold">Chat room</h2>
+<h2 class="text-left font-weight-bold">Chat room</h2>
 
 <% if @chats.blank? %>
   <p>メッセージはありません</p>
 <% else %>
   <p></p>
   <div class ="talk clearfix">
+  <div class="overflow-auto" id="area">
   <% @chats.each do |chat| %>
 
     <%# 先生版 %>
@@ -42,14 +43,17 @@
   <% end %>
   </div>
 <% end %>
-
-<%= form_with model: @chat, url: chats_path(room_id: params[:id]), method: :post do |f| %>
-  <%= f.text_area :message %>
-  <%= f.submit %>
+</div>
+<p></p>
+<div class= "text-left">
+<%= form_with model: @chat, url: chats_path(room_id: params[:id]), remote: true, method: :post do |f| %>
+  <%= f.text_area :message, class: "area-a" %>
+  <%= f.submit "Create",class: "btn btn-info" %>
 <% end %>
-
+</div>
+<div class= "text-left">
 <%= link_to "記録一覧に戻る", user_contact_books_path(current_user.id), class: "btn btn-sm btn-secondary" %>
-
+</div>
     </div>
   </div>
 </div>

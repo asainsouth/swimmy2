@@ -10,7 +10,7 @@ class Chat < ApplicationRecord
   end
 
   def save_notification_chat!(teacher, user, room_id)
-    # チャットは複数回することが考えられるため、複数回通知する
+    # チャットは複数回することが考えられるため、
     teacher.active_notifications.find_or_create_by(
       room_id: room_id,
       visited_id: user.id,
