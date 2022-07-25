@@ -2,7 +2,7 @@ class Public::ContactBooksController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @contact_books = @user.contact_books.all.order(id: "DESC").ransack(params[:q]).result.page(params[:page]).per(12)
+    @contact_books = @user.contact_books.all.order(use_day: "DESC").ransack(params[:q]).result.page(params[:page]).per(12)
 
   end
 
