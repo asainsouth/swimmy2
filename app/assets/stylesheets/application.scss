@@ -15,12 +15,12 @@
  */
 
 body {
-  background-image: image-url("watercolor.jpg");
-  background-position: center;
+  background-image: image-url("back.png");
   width: 100%;
   height: 100%;
-  background-size: cover;
-	padding-bottom: 122px;
+  background-repeat: no-repeat;
+  background-size: auto;
+	padding-bottom: 415px;
 }
 
 .contact-book-card-image {
@@ -41,9 +41,13 @@ body {
 .talk {
 	background-color:rgba(255,255,255,0.6);
 	padding:1em;
-	width:100%;
-  height:50%;
+	width:350px;
+  height:500px;
 	overflow:scroll;
+}
+.talk .talk_left {
+	float:left; /* 右のふきだしは全体的に右寄せ */
+	margin-top:3em;
 }
 /* 左のトークボックス */
 .talk .talk_left:before { /* 左の丸アイコン */
@@ -309,6 +313,12 @@ textarea:focus {
   width: 10%;
 }
 
+.talk {
+ word-break: break-all;
+ & div > p {
+ max-width: 220px;
+ }
+}
 
 
 

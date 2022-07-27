@@ -11,12 +11,12 @@ class User < ApplicationRecord
          has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   def self.guest
-    find_or_create_by!(fast_name: 'guestuser',last_name: 'guestuser', fast_name_kana: 'guestuser' ,last_name_kana: 'guestuser' ,email: 'guest@example.com') do |user|
+    find_or_create_by!(fast_name: 'st',last_name: 'gue', fast_name_kana: 'st' ,last_name_kana: 'gue' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.fast_name = "guestuser"
-      user.last_name = "guestuser"
-      user.fast_name_kana = "guestuser"
-      user.last_name_kana = "guestuser"
+      user.fast_name = "st"
+      user.last_name = "gue"
+      user.fast_name_kana = "st"
+      user.last_name_kana = "gue"
     end
   end
 
