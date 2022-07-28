@@ -23,7 +23,7 @@
 * 児童保護施設の職員と保護者が連絡を取り合う時
 
 ## 設計書
-- ![swimmy（ER図）](https://user-images.githubusercontent.com/103476516/181486394-b9fbf37e-0e43-4496-8888-11e3930e7c76.png)
+![swimmy（ER図）](https://user-images.githubusercontent.com/103476516/181486394-b9fbf37e-0e43-4496-8888-11e3930e7c76.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
