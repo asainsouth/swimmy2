@@ -4,9 +4,8 @@ class Chat < ApplicationRecord
   belongs_to :room
   has_many :notifications, dependent: :destroy
 
-
   def create_notification_chat!(teacher, user, room_id)
-     # もしチャットが空だったら、投稿者に通知を送る
+    # もしチャットが空だったら、投稿者に通知を送る
     save_notification_chat!(teacher, user, room_id)
   end
 

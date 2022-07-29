@@ -20,7 +20,7 @@ class Public::RoomsController < ApplicationController
     # @teacher.entries.each do |entry|
     #     @teacher_room_id << @teacher_room_id
     # end
-     # teacher.idで user.idを取得
+    # teacher.idで user.idを取得
 
     @entries = current_user.entries
   end

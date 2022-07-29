@@ -1,14 +1,12 @@
 class Admin::UsersController < ApplicationController
-
   def index
-    @user= current_user
-    @users= User.all
+    @user = current_user
+    @users = User.all
     @users = @users.where(id: params[:user_id]) if params[:user_id].present?
   end
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def edit
@@ -18,10 +16,10 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "利用者情報変更しました"
+      flash[:notice] = '利用者情報変更しました'
       redirect_to admin_user_path
     else
-      render "edit"
+      render 'edit'
     end
   end
 

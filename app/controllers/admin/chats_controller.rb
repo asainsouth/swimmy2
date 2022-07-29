@@ -1,5 +1,4 @@
 class Admin::ChatsController < ApplicationController
-
   def create
     chat = Chat.new(chat_params)
     if chat.save
@@ -12,6 +11,7 @@ class Admin::ChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.require(:chat).permit(:message).merge(teacher_id: current_teacher.id, room_id: params[:room_id])
   end

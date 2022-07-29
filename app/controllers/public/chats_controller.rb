@@ -1,14 +1,13 @@
 class Public::ChatsController < ApplicationController
-
   def create
     @chat = Chat.new(chat_params)
     @chat.save
-    @name=""
-    if @chat.user.full_name
-       @name= "#{@chat.user.full_name} さん:"
-    else
-       @name="未設定:"
-    end
+    @name = ''
+    @name = if @chat.user.full_name
+              "#{@chat.user.full_name} さん:"
+            else
+              '未設定:'
+            end
   end
 
   private

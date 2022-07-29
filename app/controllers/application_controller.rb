@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     when Teacher
       admin_users_path
     when User
-    user_contact_books_path(current_user.id)
+      user_contact_books_path(current_user.id)
     end
   end
 
@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name,:fast_name,:last_name_kana,:fast_name_kana,:phone_number,:postal_code,:address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[last_name fast_name last_name_kana fast_name_kana phone_number postal_code address])
   end
 end

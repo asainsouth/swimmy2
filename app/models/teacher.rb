@@ -4,8 +4,8 @@ class Teacher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :entries, dependent: :destroy
-         has_many :chats, dependent: :destroy
-         
-         has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
 end
