@@ -1,12 +1,12 @@
 <div class="container col-sm-4">
-<div class="text-center">
-
-  <h1 class="text-center font-weight-bold"> Notice list</h1>
-<% if @notifications.exists? %>
-    <%= render @notifications %>
-    <%= paginate @notifications %>
-  <% else %>
-   <p>通知はありません</p>
-  <% end %>
+  <div class="text-center">
+    <h1 class="text-center font-weight-bold"> Notice list</h1>
+    <% if @notifications.exists? %>
+      <%= render @notifications %>
+        <%= paginate @notifications %>
+      <% else %>
+     <p>通知はありません</p>
+    <% end %>
+  </div>
 </div>
 
