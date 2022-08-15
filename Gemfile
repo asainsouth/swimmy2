@@ -67,7 +67,7 @@ gem 'enum_help'
 
 gem 'jquery-rails'
 
-gem 'rubocop-airbnb'
+#gem 'rubocop-airbnb'
 
 gem "net-smtp"
 

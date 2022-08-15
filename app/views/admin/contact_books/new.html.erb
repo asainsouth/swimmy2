@@ -1,7 +1,7 @@
   <div class="container">
   <h2 class="text-center font-weight-bold"> New record</h2>
  <div class="row d-flex justify-content-center table-back">
- 	<div class="col-sm-9">
+ 	<div class="col-sm-8">
 
    <% if @contact_book.errors.any? %>
    <%= @contact_book.errors.count %>件のエラーが発生しました
@@ -14,13 +14,16 @@
 
 <%= form_with model: @contact_book,url: admin_user_contact_books_path, method: :post, local: :true do |f| %>
 
-　<div class="form-group">
-  <strong><%= f.label :"利用者名", class: "col-sm-3 control-label" %></strong>
-  <%= f.collection_select(:user_id, User.all, :id, :full_name, prompt: "-- 選択してください --", class: "col-sm-5 control-label genre_id") %>
+　<div class="form-group row">
+  <%= f.label :"利用者名", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
+  <%= f.collection_select(:user_id, User.all, :id, :full_name, prompt: "-- 選択してください --", class: "form-control") %>
+  </div>
   </div>
 
-　<div class="form-group">
-    <strong><%= f.label :"利用日", class: "col-sm-3 control-label" %></strong>
+　<div class="form-group row">
+  <%= f.label :"利用日", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
     <%= raw sprintf(
       f.date_select(
       :use_day,
@@ -31,45 +34,63 @@
       date_separator: '%s'),
       '年 ', '月 ') + '日' %>
 　</div>
+　</div>
 
-　<div class="form-group">
-  <strong><%= f.label :start_use_time, "開始時間",class: "col-sm-3 control-label" %></strong>
+　<div class="form-group row">
+  <%= f.label :start_use_time, "開始時間",class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
   <%= f.time_select :start_use_time %>
   </div>
+  </div>
 
-  <div class="form-group">
-  <strong><%= f.label :finish_use_time, "終了時間",class: "col-sm-3 control-label" %></strong>
+  <div class="form-group row">
+  <%= f.label :finish_use_time, "終了時間",class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
   <%= f.time_select :finish_use_time %>
   </div>
+  </div>
 
- <div class="form-group">
-　<strong><%= f.label :is_active, '形態', class: "col-sm-3 control-label" %></strong>
-    <%= f.select :is_active, {'授業終了後': '授業終了後', '休校': '休校', '欠席': '欠席' }, { include_blank: '選択してください'}, { class: "col-sm-3 control-label" , required: true } %>
+ <div class="form-group row">
+ <%= f.label :is_active, '形態', class: "col-sm-4 control-label font-weight-bold" %>
+ <div class="col-sm-8">
+    <%= f.select :is_active, {'授業終了後': '授業終了後', '休校': '休校', '欠席': '欠席' }, { include_blank: '選択してください'}, { class: "form-control" , required: true } %>
+ </div>
  </div>
 
- <div class="form-group">
-  <strong><%= f.label :"画像", class: "col-sm-3 control-label" %></strong>
+ <div class="form-group row">
+  <%= f.label :"画像", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
   <%= f.file_field :contact_book_image, class: "image" %>
   </div>
-
-  <div class="form-group">
-  <strong><%= f.label :"食事", class: "col-sm-3 control-label" %></strong>
-  <%= f.text_field :eat,placeholder: "食事内容を記載", class: "col-sm-5 form-control-static name" %>
   </div>
 
-  <div class="form-group">
-    <strong><%= f.label :"個人活動内容", class: "col-sm-3 control-label" %></strong>
-    <%= f.text_field :private_active,:rows => "8",placeholder: "個人活動内容を記載", class: "col-sm-5 control-label introduction" %>
+  <div class="form-group row">
+  <%= f.label :"食事", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
+  <%= f.text_field :eat,placeholder: "食事内容を記載", class: "form-control" %>
+  </div>
   </div>
 
-  <div class="form-group">
-  <strong><%= f.label :"集団活動内容", class: "col-sm-3 control-label" %></strong>
-  <%= f.text_field :group_active,:rows => "8",placeholder: "集団活動内容を記", class: "col-sm-5 control-label introduction" %>
+
+  <div class="form-group row">
+    <%= f.label :"個人活動内容", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
+    <%= f.text_field :private_active,:rows => "8",placeholder: "個人活動内容を記載", class: "form-control" %>
+  </div>
   </div>
 
-  <div class="form-group">
-  <strong><%= f.label :"保護者への連絡", class: "col-sm-3 control-label" %></strong>
-  <%= f.text_area :connection,:rows => "8",placeholder: "保護者への連絡事項を記載", class: "col-sm-5 control-label introduction" %>
+  <div class="form-group row">
+  <%= f.label :"集団活動内容", class: "col-sm-4 control-label font-weight-bold" %>
+  <div class="col-sm-8">
+  <%= f.text_field :group_active,:rows => "8",placeholder: "集団活動内容を記", class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :"保護者への連絡", class: "col-sm-4 control-label font-weight-bold" %>
+    <div class="col-sm-8">
+      <%= f.text_area :connection,:rows => "8",placeholder: "保護者への連絡事項を記載", class: "form-control" %>
+    </div>
   </div>
 
   <div class="text-center">
